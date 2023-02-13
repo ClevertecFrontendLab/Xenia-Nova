@@ -1,0 +1,28 @@
+@import 'src/styles/geometry';
+
+.mainPage {
+  width: calc(100% - 280px);
+
+  .square {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 24px 22px;
+    padding-bottom: 60px;
+  }
+
+  .line {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  @media screen and (max-width: $medium-width) {
+    width: 100%;
+
+    .square {
+      gap: 32px 34px;
+    }
+  }
+}

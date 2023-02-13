@@ -1,0 +1,22 @@
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+@import 'src/styles/geometry';
+
+.avatar {
+  border-radius: $radius-circle;
+}
+
+.small {
+  width: 32px;
+  height: 32px;
+}
+
+.large {
+  width: 58px;
+  height: 58px;
+}
+
+.medium {
+  width: 40px;
+  height: 40px;
+}

@@ -1,0 +1,90 @@
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+@import 'src/styles/geometry';
+
+.collapse {
+  margin-bottom: 34px;
+
+  .collapsible {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 255px;
+    border: none;
+    font-size: $desktop-h5;
+    font-weight: $bold-weight;
+    padding-bottom: 8px;
+    border-bottom: 1px solid transparent;
+  }
+
+  .activeCollapse {
+    background: $primary-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: 1px solid;
+    border-image: $primary-gradient;
+    border-image-slice: 1;
+
+    svg path {
+      color: #f83600ff;
+    }
+  }
+
+  .content {
+    width: calc(100% - 20px);
+    max-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-left: 20px;
+
+    a {
+      padding-bottom: 16px;
+
+      .count {
+        color: $gray-2;
+        font-size: $desktop-subtitle-small;
+      }
+    }
+
+    .active {
+      .title {
+        font-size: $desktop-h5;
+        font-weight: $bold-weight;
+        background: $primary-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .common {
+      font-size: $desktop-subtitle-large;
+    }
+  }
+
+  .contentVisible {
+    padding-top: 16px;
+    max-height: 841px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: $medium-width) {
+    background: $gray-5;
+
+    .collapsible:not(.activeCollapse),
+    .collapsible svg,
+    .content,
+    .content .active,
+    .content span {
+      background: $gray-5;
+    }
+  }
+
+  @media screen and (max-width: $small-width) {
+    .collapsible {
+      width: 100%;
+    }
+  }
+}

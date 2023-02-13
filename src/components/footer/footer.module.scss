@@ -1,0 +1,41 @@
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+@import 'src/styles/geometry';
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid $gray-3;
+  padding: 16px 0;
+
+  .license {
+    font-size: $desktop-body-large;
+  }
+
+  .iconWrapper {
+    display: flex;
+
+    svg {
+      margin-left: 24px;
+      color: $dark;
+      cursor: pointer;
+    }
+    svg:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: $small-width) {
+  .footer {
+    justify-content: center;
+
+    .license {
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: $mobile-body-large;
+    }
+  }
+}

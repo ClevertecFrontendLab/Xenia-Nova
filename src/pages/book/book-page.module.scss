@@ -1,0 +1,324 @@
+@import 'src/styles/geometry';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+
+.bookPage {
+  width: 100%;
+
+  .mainInfo {
+    display: grid;
+    margin-bottom: 42px;
+    grid-template-areas:
+      'A  B'
+      'A  C';
+
+    .imgWrapper {
+      grid-area: A;
+      width: 445px;
+      padding-right: 30px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .info {
+      grid-area: B;
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-weight: $bold-weight;
+        font-size: $desktop-h3;
+        line-height: 40px;
+        padding-bottom: 24px;
+      }
+
+      span {
+        color: $gray-2;
+        font-weight: $bold-weight;
+        font-size: $desktop-h5;
+        line-height: 28px;
+        padding-bottom: 32px;
+      }
+
+      button {
+        width: 320px;
+        margin-bottom: 64px;
+      }
+    }
+
+    .description {
+      grid-area: C;
+
+      p {
+        font-weight: $bold-weight;
+        font-size: $desktop-h5;
+        line-height: 28px;
+        padding-bottom: 32px;
+      }
+
+      span {
+        font-weight: $regular-weight;
+        font-size: $desktop-subtitle-large;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .ratingWrapper {
+    p {
+      font-weight: $bold-weight;
+      font-size: $desktop-h5;
+      line-height: 28px;
+      width: 350px;
+      border-bottom: 1px solid #ebebeb;
+      padding-bottom: 16px;
+    }
+
+    .flexWrapper {
+      display: flex;
+      align-items: center;
+
+      .rating {
+        display: flex;
+        align-items: center;
+        margin-right: 26px;
+
+        span {
+          font-weight: $regular-weight;
+          font-size: $desktop-subtitle-small;
+          line-height: 18px;
+          color: $gray-2;
+        }
+
+        img {
+          width: 24px;
+          height: 24px;
+          margin-left: 14px;
+        }
+        img:first-child {
+          margin-left: 0;
+        }
+      }
+
+      .ratingNumber {
+        font-weight: $bold-weight;
+        font-size: $desktop-h5;
+        line-height: 28px;
+      }
+    }
+  }
+
+  .detailedInformation {
+    margin-top: 62px;
+    & > p {
+      font-weight: $bold-weight;
+      font-size: $desktop-h5;
+      line-height: 28px;
+      width: 350px;
+      border-bottom: 1px solid #ebebeb;
+      padding-bottom: 16px;
+    }
+    & > div {
+      display: flex;
+
+      div {
+        width: 50%;
+      }
+
+      p {
+        display: flex;
+        margin-bottom: 16px;
+
+        span {
+          width: 50%;
+          font-weight: $regular-weight;
+          font-size: $desktop-body-large;
+          line-height: 24px;
+        }
+
+        span:first-child {
+          font-weight: $semibold-weight;
+          color: $gray-2;
+        }
+      }
+    }
+  }
+
+  .comments {
+    margin-bottom: 42px;
+    margin-top: 62px;
+    .title {
+      display: flex;
+      align-items: center;
+      width: 350px;
+      border-bottom: 1px solid #ebebeb;
+      padding-bottom: 16px;
+      & > div {
+        display: flex;
+        align-items: center;
+      }
+      svg {
+        display: none;
+      }
+      p {
+        font-weight: $bold-weight;
+        font-size: $desktop-h5;
+        line-height: 28px;
+      }
+      span {
+        font-weight: $regular-weight;
+        font-size: $desktop-subtitle-small;
+        line-height: 28px;
+        color: $gray-2;
+        padding-left: 6px;
+      }
+    }
+    .collapseButton {
+      cursor: pointer;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      svg {
+        margin-left: 24px;
+        display: block;
+      }
+    }
+    .content {
+      height: 0;
+      overflow: hidden;
+    }
+    .contentVisible {
+      height: auto;
+    }
+    button {
+      width: 350px;
+    }
+  }
+
+  @media screen and (max-width: $medium-desktops) {
+    .mainInfo {
+      grid-template-areas:
+        'A  B'
+        'C  C';
+
+      .imgWrapper {
+        min-width: 200px;
+        width: 100%;
+      }
+
+      .info {
+        p {
+          font-size: $desktop-h4;
+          line-height: 30px;
+        }
+
+        span {
+          font-size: $desktop-body-small;
+          line-height: 18px;
+        }
+
+        button {
+          width: 306px;
+        }
+      }
+
+      .description {
+        padding-top: 48px;
+      }
+    }
+    .ratingWrapper p {
+      font-size: $desktop-subtitle-large;
+      width: 305px;
+    }
+    .detailedInformation {
+      margin-top: 54px;
+      & > p {
+        width: 305px;
+        font-weight: $semibold-weight;
+        font-size: $desktop-body-large;
+        line-height: 24px;
+      }
+      & > div {
+        p span {
+          font-size: $desktop-subtitle-small;
+          line-height: 18px;
+        }
+      }
+    }
+    .comments {
+      margin-top: 54px;
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  @media screen and (max-width: $small-width) {
+    .mainInfo {
+      grid-template-areas:
+        'A'
+        'B'
+        'C';
+
+      .info {
+        button {
+          width: 100%;
+        }
+      }
+
+      .imgWrapper {
+        padding-right: 0;
+        margin: 0 auto;
+        max-width: 188px;
+      }
+    }
+    .ratingWrapper {
+      p {
+        width: 100%;
+        font-size: $mobile-h3;
+      }
+
+      .flexWrapper {
+        flex-wrap: wrap;
+        .rating {
+          img {
+            width: 34px;
+            height: 34px;
+            margin-bottom: 8px;
+          }
+        }
+      }
+    }
+
+    .detailedInformation {
+      margin-top: 24px;
+      & > p {
+        width: 100%;
+        font-weight: $semibold-weight;
+        font-size: $desktop-body-large;
+        line-height: 24px;
+      }
+      & > div {
+        flex-direction: column;
+        div {
+          width: 100%;
+        }
+        p span {
+          font-size: $mobile-body-small;
+          line-height: 18px;
+        }
+        p span:first-child {
+          font-weight: $medium-weight;
+        }
+      }
+    }
+    .comments {
+      margin-top: 42px;
+      .title {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+@import 'src/styles/geometry';
+
+.breadcrumbs {
+  background: $gray-5;
+  padding: 20px 0;
+
+  .textWrapper {
+    background-color: $gray-5;
+
+    a,
+    span {
+      color: $gray-2;
+      font-weight: $regular-weight;
+      font-size: $desktop-subtitle-small;
+      line-height: 18px;
+      background: $gray-5;
+    }
+
+    svg {
+      margin: 0 4px;
+      padding-top: 2px;
+      background-color: $gray-5;
+      path {
+        color: $gray-2;
+      }
+    }
+  }
+
+  @media screen and (max-width: $small-width) {
+    .textWrapper {
+      a,
+      span {
+        font-size: $mobile-body-small;
+        line-height: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+
+.rating {
+  display: flex;
+  align-items: center;
+
+  .noRating {
+    font-weight: $regular-weight;
+    font-size: $desktop-subtitle-small;
+    line-height: 18px;
+    color: $gray-2;
+  }
+
+  .star {
+    width: 24px;
+    height: 24px;
+  }
+}

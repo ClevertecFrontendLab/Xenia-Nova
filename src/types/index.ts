@@ -1,4 +1,4 @@
 export * from './router';
 export * from './menu';
-export * from './card';
+export * from './book';
 export * from './comment';

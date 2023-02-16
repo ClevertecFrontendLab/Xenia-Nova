@@ -4,8 +4,8 @@ import { useLocation } from 'react-router-dom';
 import { Breadcrumbs } from '../breadcrumbs';
 import { Footer } from '../footer';
 import { Header } from '../header';
-import { Menu } from '../menu';
 import { Loader } from '../loader';
+import { Menu } from '../menu';
 
 import styles from './layout.module.scss';
 
@@ -16,7 +16,6 @@ interface ILayoutProps {
 export const Layout: FC<ILayoutProps> = ({ children }) => {
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
-  const isLoading = false;
 
   const handleMenuToggle = () => setShowMenu((prev) => !prev);
 
@@ -30,7 +29,7 @@ export const Layout: FC<ILayoutProps> = ({ children }) => {
 
   return (
     <React.Fragment>
-      {isLoading && <Loader />}
+      <Loader />
       <Header onBurgerClick={handleMenuToggle} isShowMenu={showMenu} />
       {!displayMenu && <Breadcrumbs />}
       <div className={`container ${styles.content}`}>

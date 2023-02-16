@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
-import { RootState } from '../store/root-reducer';
+import { RootState } from '../types/store';
 
 type AppDispatch = ThunkDispatch<RootState, any, AnyAction>;
 

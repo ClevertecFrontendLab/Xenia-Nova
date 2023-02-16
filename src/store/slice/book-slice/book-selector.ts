@@ -1,2 +1,2 @@
-export const getCurrentBookSelector = () => 'some';
+export const getCurrentBookSelector = (state: any) => state.books;
 

@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
 
-import { bookReducer } from './slice/book-slice';
+import { bookReducer, loadingReducer } from './slice';
 
 export const rootReducer = combineReducers({
-  bookReducer,
+  books: bookReducer,
+  loading: loadingReducer,
 });
-
-export type RootState = ReturnType<typeof rootReducer>;

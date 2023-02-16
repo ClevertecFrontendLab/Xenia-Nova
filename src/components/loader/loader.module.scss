@@ -1,5 +1,6 @@
 @import 'src/styles/colors';
 
+
 .loaderWrapper {
   z-index: 100;
   position: absolute;
@@ -14,6 +15,10 @@
   animation: rotation 1s linear infinite;
   position: fixed;
   inset: calc(50% - 50px);
+}
+
+.hidden {
+    display: none;
 }
 
 @keyframes rotation {

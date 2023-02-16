@@ -1,9 +1,10 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react';
 
+import { useSelector } from 'react-redux';
 import { Card, ControlPanel } from '../../components';
 import { FILTER_ASC, mockCards, VIEW_SQUARE } from '../../constants';
 import { useAppDispatch } from '../../hooks';
-import { getAllBooks } from '../../store/slice/book-slice';
+import { getAllBooks, getCurrentBookSelector } from '../../store/slice/book-slice';
 
 import styles from './main-page.module.scss';
 
@@ -11,6 +12,7 @@ export const MainPage = () => {
   const [viewToggle, setViewToggle] = useState(VIEW_SQUARE);
   const [sort, setSort] = useState(FILTER_ASC);
   const dispatch = useAppDispatch();
+  const booksInfo = useSelector(getCurrentBookSelector);
 
   const handleChangeView = (event: SyntheticEvent<HTMLButtonElement>) => setViewToggle(event.currentTarget.value);
   const handleChangeSort = (event: SyntheticEvent<HTMLButtonElement>) => setSort(event.currentTarget.value);

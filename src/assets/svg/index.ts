@@ -30,3 +30,4 @@ export { ReactComponent as UpIcon } from './up.svg';
 export { ReactComponent as VkIcon } from './vk.svg';
 export { ReactComponent as Logo } from './logo.svg';
 export { ReactComponent as ChevronIcon } from './chevron.svg';
+export { ReactComponent as LoaderIcon } from './loader.svg';

@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
-import { Button, Comment, Rating, ImageSwiper } from '../../components';
+import { DownIcon, UpIcon } from '../../assets';
+import { Button, Comment, ImageSwiper,Rating } from '../../components';
 import { mockCards, mockComments } from '../../constants';
+import { useAppDispatch } from '../../hooks';
+import { getCurrentBookAction } from '../../store/slice/book-slice';
 
 import styles from './book-page.module.scss';
-import { DownIcon, UpIcon } from '../../assets';
 
 export const BookPage = () => {
   const params = useParams();
+  const dispatch = useAppDispatch();
   const [showComments, setShowComments] = useState(true);
   const { name, author, imgUrls, description, rating } = mockCards.find(({ id }) => id === Number(params.id)) || {};
 
@@ -19,6 +22,12 @@ export const BookPage = () => {
     }
     return false;
   };
+
+  useEffect(() => {
+    if (params.id) {
+      dispatch(getCurrentBookAction(params.id));
+    }
+  }, [params, dispatch]);
 
   return (
     <section className={styles.bookPage}>
@@ -106,7 +115,14 @@ export const BookPage = () => {
             <Comment key={id} user={user} avatarUrl={avatarUrl} date={date} text={text} rating={commentRating} />
           ))}
         </div>
-        <Button onClick={() => {}} size='small' title='оценить книгу' disabled={false} variant='primary' data-test-id='button-rating' />
+        <Button
+          onClick={() => {}}
+          size='small'
+          title='оценить книгу'
+          disabled={false}
+          variant='primary'
+          data-test-id='button-rating'
+        />
       </article>
     </section>
   );

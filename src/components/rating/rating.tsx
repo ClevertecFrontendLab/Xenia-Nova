@@ -6,12 +6,12 @@ import starFilled from '../../assets/img/star-filled.png';
 import styles from './rating.module.scss';
 
 interface IRating {
-  rating?: number;
+  rating: number | null;
   className?: string;
   isDisplayEmpty?: boolean;
 }
 
-export const Rating: FC<IRating> = ({ rating = 0, className, isDisplayEmpty }) => {
+export const Rating: FC<IRating> = ({ rating, className, isDisplayEmpty }) => {
   const starArr = [1, 2, 3, 4, 5];
 
   return (
@@ -21,7 +21,7 @@ export const Rating: FC<IRating> = ({ rating = 0, className, isDisplayEmpty }) =
           <img
             key={item}
             className={className ? '' : styles.star}
-            src={item <= rating ? starFilled : star}
+            src={item <= (rating || 0) ? starFilled : star}
             alt='star'
           />
         ))

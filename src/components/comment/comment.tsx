@@ -22,7 +22,7 @@ export const Comment: FC<ICommentProps> = ({ user, avatarUrl, rating, text, date
         <span>{date}</span>
       </div>
     </header>
-    <Rating rating={rating} />
+    <Rating rating={rating || 0} />
     <p className={styles.text}>{text}</p>
   </div>
 );

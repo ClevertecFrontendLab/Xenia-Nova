@@ -48,7 +48,7 @@ export const BookPage = () => {
       <article className={styles.ratingWrapper}>
         <p>Рейтинг</p>
         <div className={styles.flexWrapper}>
-          <Rating rating={rating} isDisplayEmpty={true} className={styles.rating} />
+          <Rating rating={rating || 0} isDisplayEmpty={true} className={styles.rating} />
           <span className={rating ? styles.ratingNumber : ''}>{rating || 'ещё нет оценок'}</span>
         </div>
       </article>

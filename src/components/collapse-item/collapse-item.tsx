@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { DownIcon, UpIcon } from '../../assets';
-import { menuConfig, mockCount } from '../../constants';
+import { mockCount } from '../../constants';
 import { IMenuMainItem } from '../../types';
 
 import styles from './collapse-item.module.scss';
@@ -17,14 +17,14 @@ interface ICollapseItemProps {
 }
 
 export const CollapseItem: FC<ICollapseItemProps> = ({
-  data: { label, nestedItems },
+  data: { name, nestedItems },
   onCloseMenu,
   showCollapse,
   setShowCollapse,
   isShowMenu,
 }) => {
   const location = useLocation();
-  const isActiveCollapse = nestedItems?.some((item) => location.pathname === item.path);
+  const isActiveCollapse = nestedItems?.some((item) => location.pathname === `/${item.path}`);
 
   return (
     <div className={styles.collapse}>
@@ -34,11 +34,11 @@ export const CollapseItem: FC<ICollapseItemProps> = ({
         onClick={setShowCollapse}
         data-test-id={isShowMenu ? 'burger-showcase' : 'navigation-showcase'}
       >
-        {label}
+        {name}
         {showCollapse ? <UpIcon /> : <DownIcon />}
       </button>
       <div className={classNames(styles.content, { [styles.contentVisible]: showCollapse })}>
-        {nestedItems?.map(({ label: nestedLabel, path: nestedPath, dataTestId, mobileDataTestId }) => (
+        {nestedItems?.map(({ name: nestedLabel, path: nestedPath, dataTestId, mobileDataTestId }) => (
           <NavLink
             data-test-id={isShowMenu ? mobileDataTestId : dataTestId}
             key={nestedPath}

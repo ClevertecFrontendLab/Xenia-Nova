@@ -4,18 +4,18 @@ import { useSelector } from 'react-redux';
 import { Card, ControlPanel } from '../../components';
 import { FILTER_ASC, VIEW_SQUARE } from '../../constants';
 import { useAppDispatch } from '../../hooks';
-import { getAllBooksAction, getAllBooksSelector} from '../../store/slice';
+import { getAllBooksAction, getAllBooksSelector } from '../../store/slice';
+import { IBook } from '../../types';
 
 import styles from './main-page.module.scss';
-import { IBook } from '../../types';
 
 export const MainPage = () => {
   const [viewToggle, setViewToggle] = useState(VIEW_SQUARE);
   const [sort, setSort] = useState(FILTER_ASC);
   const dispatch = useAppDispatch();
   const books = useSelector(getAllBooksSelector);
-    console.log('books===>>>', books);
-    const handleChangeView = (event: SyntheticEvent<HTMLButtonElement>) => setViewToggle(event.currentTarget.value);
+
+  const handleChangeView = (event: SyntheticEvent<HTMLButtonElement>) => setViewToggle(event.currentTarget.value);
   const handleChangeSort = (event: SyntheticEvent<HTMLButtonElement>) => setSort(event.currentTarget.value);
 
   useEffect(() => {

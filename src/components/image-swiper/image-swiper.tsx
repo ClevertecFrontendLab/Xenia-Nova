@@ -1,17 +1,19 @@
 import React, { FC, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Thumbs, Pagination } from 'swiper';
 import type SwiperType from 'swiper';
+import { Pagination, Thumbs } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+import noImage from '../../assets/img/no-img.png';
 import { mockImgArr } from '../../constants';
+import { baseUrl } from '../../constants/api';
+
+import styles from './image-swiper.module.scss';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/thumbs';
-import styles from './image-swiper.module.scss';
-import noImage from '../../assets/img/no-img.png';
 
 interface IImageSwiperProps {
   imgUrls?: string[];
@@ -19,7 +21,7 @@ interface IImageSwiperProps {
 
 export const ImageSwiper: FC<IImageSwiperProps> = ({ imgUrls = [] }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
-  const [img, setImg] = useState(imgUrls[0] || '');
+  const [img, setImg] = useState(imgUrls[0] ? `${baseUrl}${imgUrls[0]}` : '');
 
   const imageOnErrorHandler = () => setImg(noImage);
 
@@ -58,7 +60,7 @@ export const ImageSwiper: FC<IImageSwiperProps> = ({ imgUrls = [] }) => {
             }}
           >
             {mockImgArr.map((img) => (
-              <SwiperSlide data-test-id='slide-mini' key={img} className={styles.slide} >
+              <SwiperSlide data-test-id='slide-mini' key={img} className={styles.slide}>
                 <img src={img} alt='slider img' />
               </SwiperSlide>
             ))}

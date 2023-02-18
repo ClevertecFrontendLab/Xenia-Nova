@@ -64,7 +64,7 @@ export interface IBook {
 export interface ICurrentBook {
   id: number;
   title: string;
-  rating: number;
+  rating: number | null;
   issueYear: string;
   description: string;
   publish: string;

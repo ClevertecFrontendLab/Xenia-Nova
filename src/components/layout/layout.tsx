@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useMemo, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { Breadcrumbs } from '../breadcrumbs';
@@ -27,6 +27,10 @@ export const Layout: FC<ILayoutProps> = ({ children }) => {
 
     return !(locationParams.length === 3 && !!Number(locationParams[2]));
   }, [location]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <React.Fragment>

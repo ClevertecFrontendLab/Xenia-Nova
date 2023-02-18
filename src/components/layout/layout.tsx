@@ -6,6 +6,7 @@ import { Footer } from '../footer';
 import { Header } from '../header';
 import { Loader } from '../loader';
 import { Menu } from '../menu';
+import { Snackbar } from '../snackbar';
 
 import styles from './layout.module.scss';
 
@@ -39,6 +40,7 @@ export const Layout: FC<ILayoutProps> = ({ children }) => {
         {children}
       </div>
       <Footer />
+      <Snackbar type='error' />
     </React.Fragment>
   );
 };

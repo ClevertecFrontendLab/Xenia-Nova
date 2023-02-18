@@ -1,0 +1,82 @@
+@import 'src/styles/colors';
+@import 'src/styles/geometry';
+@import 'src/styles/typography';
+
+.snackbarWrapper {
+  width: 78%;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 5px;
+  padding: 24px 32px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+
+  .info {
+    display: flex;
+    align-items: center;
+    background: transparent;
+
+    svg {
+      margin-right: 12px;
+      min-width: 24px;
+    }
+    span {
+      font-weight: $semibold-weight;
+      font-size: $desktop-subtitle-large;
+      line-height: 24px;
+    }
+  }
+
+  svg,
+  span {
+    background: transparent;
+  }
+
+  .closeButton {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+}
+
+.showSnackbar {
+    display: flex;
+}
+.error {
+  border: 1px solid $negative;
+  background: #feebea;
+}
+
+@media screen and (max-width: $medium-width) {
+  .snackbarWrapper {
+    width: 85%;
+    .info {
+      span {
+        font-size: $desktop-subtitle-small;
+        line-height: 18px;
+      }
+    }
+    .closeButton {
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $small-width) {
+  .snackbarWrapper {
+    width: 90%;
+    padding: 12px 16px;
+    align-items: self-start;
+
+    .info {
+      align-items: self-start;
+    }
+  }
+}

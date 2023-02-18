@@ -10,3 +10,4 @@ export * from './comment';
 export * from './avatar';
 export * from './search-input';
 export * from './image-swiper';
+export * from './snackbar';

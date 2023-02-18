@@ -24,19 +24,22 @@
     .img {
       width: 100%;
       height: calc(100% - 16px);
-      object-fit: cover;
-      border: 1px solid $gray-1;
-      margin-bottom: 16px;
+      border: 1px solid $gray-2;
       border-radius: 10px;
     }
   }
 
   .wrapperBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 166px;
+    padding-top: 20px;
+
     .name {
       font-weight: $semibold-weight;
       font-size: $desktop-subtitle-small;
       line-height: 18px;
-      margin-bottom: 8px;
       text-overflow: ellipsis;
       width: 100%;
       max-height: 55px;

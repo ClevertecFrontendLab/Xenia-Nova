@@ -9,7 +9,7 @@ import { Rating } from '../rating';
 
 import styles from './card.module.scss';
 import { IBook } from '../../types';
-import {baseUrl} from "../../constants/api";
+import { baseUrl } from '../../constants/api';
 
 interface ICardProps extends IBook {
   viewType: string;
@@ -28,7 +28,7 @@ export const Card: FC<ICardProps> = ({
   viewType,
 }) => {
   const location = useLocation();
-  const [img, setImg] = useState(image?.url ? `${baseUrl}${image.url}` :  '');
+  const [img, setImg] = useState(image?.url ? `${baseUrl}${image.url}` : '');
   const imageOnErrorHandler = () => setImg(noImage);
 
   return (

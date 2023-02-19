@@ -15,7 +15,7 @@ export const publicRoutes: IRoutes[] = [
     nestedRoutes: [],
   },
   {
-    path: '/:category/:id',
+    path: '/books/:category/:id',
     component: BookPage,
     nestedRoutes: [],
   },

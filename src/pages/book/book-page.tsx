@@ -7,17 +7,17 @@ import { DownIcon, UpIcon } from '../../assets';
 import { Button, Comment, ImageSwiper, Rating } from '../../components';
 import { mockComments } from '../../constants';
 import { useAppDispatch } from '../../hooks';
-import { getCurrentBookAction, getCurrentBookSelector } from '../../store/slice';
+import { clearCurrentBookAction, getCurrentBookAction, getCurrentBookSelector } from '../../store/slice';
+import { ICurrentBook } from '../../types';
 
 import styles from './book-page.module.scss';
-import { ICurrentBook } from '../../types';
 
 export const BookPage = () => {
   const params = useParams();
   const dispatch = useAppDispatch();
   const currentBook = useSelector(getCurrentBookSelector);
-
-  const [showComments, setShowComments] = useState(true);
+    console.log(currentBook);
+    const [showComments, setShowComments] = useState(true);
 
   const {
     title = '',
@@ -53,12 +53,16 @@ export const BookPage = () => {
     if (params.id) {
       dispatch(getCurrentBookAction(params.id));
     }
+
+    return () => {
+      dispatch(clearCurrentBookAction());
+    };
   }, [params, dispatch]);
 
   return (
     <section className={styles.bookPage}>
       {currentBook && (
-        <>
+        <React.Fragment>
           <article className={styles.mainInfo}>
             <div className={styles.imgWrapper}>
               <ImageSwiper imgUrls={imgArr} />
@@ -152,7 +156,7 @@ export const BookPage = () => {
               data-test-id='button-rating'
             />
           </article>
-        </>
+        </React.Fragment>
       )}
     </section>
   );

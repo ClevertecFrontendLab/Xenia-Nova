@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import type SwiperType from 'swiper';
 import { Pagination, Thumbs } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -21,9 +21,12 @@ interface IImageSwiperProps {
 
 export const ImageSwiper: FC<IImageSwiperProps> = ({ imgUrls = [] }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
-  const [img, setImg] = useState(imgUrls[0] ? `${baseUrl}${imgUrls[0]}` : '');
-
+  const [img, setImg] = useState('');
   const imageOnErrorHandler = () => setImg(noImage);
+
+  useEffect(() => {
+      setImg(imgUrls[0] ? `${baseUrl}${imgUrls[0]}` : '')
+  }, [imgUrls]);
 
   return (
     <div className={styles.wrapper}>

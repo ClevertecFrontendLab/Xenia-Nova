@@ -23,12 +23,12 @@ export const Snackbar: FC<ISnackbarProps> = ({ type }) => {
     const closeDelay = () => setTimeout(handleCloseError, 6000);
 
     if (errorMessage) {
-      closeDelay();
+      // closeDelay();
     }
   }, [errorMessage, handleCloseError]);
 
   return (
-    <div className={classNames(styles.snackbarWrapper, styles[type], { [styles.showSnackbar]: errorMessage })}>
+    <div className={classNames(styles.snackbarWrapper, styles[type], { [styles.showSnackbar]: errorMessage })} data-test-id='error'>
       <div className={styles.info}>
         <ErrorIcon />
         <span>{DEFAULT_ERROR}</span>

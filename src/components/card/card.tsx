@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 import noImage from '../../assets/img/no-img.png';
 import { VIEW_SQUARE } from '../../constants';
@@ -28,6 +28,7 @@ export const Card: FC<ICardProps> = ({
   viewType,
 }) => {
   const location = useLocation();
+  const params = useParams();
   const [img, setImg] = useState(image?.url ? `${baseUrl}${image.url}` : '');
   const imageOnErrorHandler = () => setImg(noImage);
 
@@ -36,7 +37,7 @@ export const Card: FC<ICardProps> = ({
       {viewType === VIEW_SQUARE ? (
         <React.Fragment>
           <div className={styles.wrapperTop}>
-            <Link to={location.pathname === MAIN_PAGE ? `all/${id}` : `${id}`}>
+            <Link to={`/books/${location.pathname === MAIN_PAGE  ? 'all' : params.category}/${id}`}>
               <img src={img} alt='book cover' onError={imageOnErrorHandler} className={styles.img} />
             </Link>
             <Rating rating={rating} />

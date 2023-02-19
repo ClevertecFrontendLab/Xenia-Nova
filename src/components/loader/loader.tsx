@@ -17,7 +17,7 @@ export const Loader = () => {
 
   return (
     <div className={classNames(styles.loaderWrapper, { [styles.hidden]: !isLoading })}>
-      <LoaderIcon className={styles.loader} />
+      <LoaderIcon className={styles.loader} data-test-id='loader' />
     </div>
   );
 };

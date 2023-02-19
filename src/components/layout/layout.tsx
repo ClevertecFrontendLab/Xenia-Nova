@@ -25,7 +25,7 @@ export const Layout: FC<ILayoutProps> = ({ children }) => {
   const displayMenu = useMemo(() => {
     const locationParams = location.pathname.split('/');
 
-    return !(locationParams.length === 3 && !!Number(locationParams[2]));
+    return !locationParams.includes('books');
   }, [location]);
 
   useEffect(() => {

@@ -1,0 +1,60 @@
+$regular-weight:  400;
+$medium-weight:   500;
+$semibold-weight: 600;
+$bold-weight:     700;
+
+//desktop
+$desktop-h1:             52px;
+$desktop-h2:             44px;
+$desktop-h3:             32px;
+$desktop-h4:             24px;
+$desktop-h5:             18px;
+$desktop-subtitle-large: 16px;
+$desktop-subtitle-small: 14px;
+$desktop-body-large:     $desktop-subtitle-large;
+$desktop-body-small:     $desktop-subtitle-small;
+$desktop-info-large:     12px;
+$desktop-info-small:     $desktop-info-large;
+$desktop-button-large:   $desktop-subtitle-large;
+$desktop-button-small:   $desktop-subtitle-small;
+
+//mobile
+$mobile-h1:             32px;
+$mobile-h2:             26px;
+$mobile-h3:             18px;
+$mobile-subtitle-large: 16px;
+$mobile-subtitle-small: 14px;
+$mobile-body-large:     15px;
+$mobile-body-small:     12px;
+$mobile-button-large:   $mobile-subtitle-large;
+$mobile-button-small:   $mobile-body-small;
+$mobile-info-large:     $mobile-body-small;
+$mobile-info-small:     $mobile-body-small;
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local("MontserratBold"),
+  url("../assets/fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: $bold-weight;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local("MontserratSemiBold"),
+  url("../assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: $semibold-weight;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local("MontserratMedium"),
+  url("../assets/fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: $medium-weight;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local("MontserratRegular"),
+  url("../assets/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: $regular-weight;
+}

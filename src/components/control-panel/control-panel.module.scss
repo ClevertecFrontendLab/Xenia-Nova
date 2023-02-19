@@ -1,0 +1,32 @@
+@import 'src/styles/geometry';
+
+.controlPanel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+
+  .searchBlock,
+  .viewBlock {
+    display: flex;
+    align-items: center;
+
+    & > button:last-child {
+      margin-left: 16px;
+    }
+  }
+
+  .searchBlock {
+    flex: 1;
+  }
+
+  @media screen and (max-width: $medium-width) {
+    margin-bottom: 24px;
+  }
+
+  @media screen and (max-width: $small-width) {
+    margin-bottom: 19px;
+  }
+}

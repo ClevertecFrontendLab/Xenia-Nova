@@ -1,0 +1,66 @@
+@import 'src/styles/typography';
+@import 'src/styles/colors';
+@import 'src/styles/geometry';
+
+.iconButton {
+  display: flex;
+  align-items: flex-end;
+  border: none;
+  height: 38px;
+  padding: 10px;
+  border-radius: 38px;
+  box-shadow: 0 2px 4px rgba(191, 196, 201, 0.2), 0 3px 4px rgba(191, 196, 201, 0.18),
+    0 1px 5px rgba(191, 196, 201, 0.24);
+
+  svg {
+    width: 19px;
+    height: 19px;
+
+    path {
+      color: $gray-2;
+    }
+  }
+
+  span {
+    font-weight: $regular-weight;
+    font-size: $desktop-subtitle-small;
+    line-height: 18px;
+    color: $gray-2;
+    padding-left: 8px;
+  }
+
+  @media screen and (max-width: $small-width) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    padding: 0;
+    span {
+      display: none;
+    }
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.active {
+  background: $primary-gradient;
+
+  svg {
+    background: transparent;
+
+    path {
+      color: $white;
+    }
+  }
+}
+
+.iconButton:hover {
+  cursor: pointer;
+}
+.iconButton:active {
+  box-shadow: 0 3px 4px rgba(222, 125, 11, 0.2), 0 1px 10px rgba(249, 89, 8, 0.2);
+}

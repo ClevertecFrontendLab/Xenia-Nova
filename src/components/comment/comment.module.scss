@@ -1,0 +1,54 @@
+@import 'src/styles/geometry';
+@import 'src/styles/colors';
+@import 'src/styles/typography';
+
+.comment {
+  width: 60%;
+  margin-bottom: 42px;
+
+  header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 16px;
+
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: $radius-circle;
+    }
+    div {
+      display: flex;
+      align-items: center;
+
+      span {
+        font-weight: $regular-weight;
+        font-size: $desktop-body-small;
+        line-height: 24px;
+        color: $gray-1;
+        margin-left: 24px;
+      }
+    }
+  }
+
+  .text {
+    padding-top: 16px;
+    line-height: 24px;
+  }
+
+  @media screen and (max-width: $medium-desktops) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: $small-width) {
+    header > div {
+      flex-direction: column;
+    }
+
+    .text,
+    header div span {
+      font-weight: $regular-weight;
+      font-size: $mobile-body-large;
+      line-height: 20px;
+    }
+  }
+}

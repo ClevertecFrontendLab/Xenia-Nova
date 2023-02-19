@@ -1,0 +1,112 @@
+@import 'src/styles/typography';
+@import 'src/styles/colors';
+@import 'src/styles/geometry';
+
+.searchInput {
+  position: relative;
+  flex-basis: 350px;
+
+  input {
+    z-index: 2;
+    min-width: 240px;
+    color: #a7a7a7;
+    width: 100%;
+    border: none;
+    border-radius: 38px;
+    padding: 10px 10px 10px 35px;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(191, 196, 201, 0.2), 0 3px 4px rgba(191, 196, 201, 0.18),
+      0 1px 5px rgba(191, 196, 201, 0.24);
+  }
+
+  input::placeholder {
+    color: $gray-2;
+  }
+
+  svg {
+    position: absolute;
+    left: 10px;
+    top: 9px;
+    width: 19px;
+    height: 19px;
+
+    path {
+      color: $gray-2;
+    }
+  }
+
+  .mobileButton {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(191, 196, 201, 0.2), 0 3px 4px rgba(191, 196, 201, 0.18),
+      0 1px 5px rgba(191, 196, 201, 0.24);
+
+    svg {
+      position: static;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .closeButton {
+    display: none;
+  }
+
+  .closeButtonVisible {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    z-index: 3;
+    right: 16px;
+    left: auto;
+    top: 18px;
+    position: absolute;
+    cursor: pointer;
+
+    svg {
+      position: static;
+      width: 16px;
+      height: 16px;
+      path {
+        color: #f83600ff;
+      }
+    }
+  }
+
+  @media screen and (max-width: $small-width) {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+    min-width: 32px;
+    input,
+    & > svg {
+      display: none;
+    }
+
+    .mobileButton {
+      display: flex;
+    }
+
+    .visibleInput {
+      padding: 7px 10px 7px 16px;
+      display: block;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      color: #f83600ff;
+      box-shadow: 0 2px 4px rgba(191, 196, 201, 0.2), 0 3px 4px rgba(191, 196, 201, 0.18),
+        0 1px 5px rgba(191, 196, 201, 0.24);
+    }
+  }
+}

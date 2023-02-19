@@ -6,7 +6,7 @@ import { IMenuItem } from '../../../types';
 import { ICategoriesState } from '../../../types/store';
 
 interface IAction extends Action {
-  payload: IMenuItem;
+  payload: IMenuItem[];
 }
 
 const initialState: ICategoriesState = {
@@ -40,6 +40,7 @@ const initialState: ICategoriesState = {
       mobileDataTestId: 'burger-contract',
     },
   },
+  categories: [],
 };
 
 export const categoriesReducer = (state = initialState, action: IAction) => {
@@ -51,6 +52,7 @@ export const categoriesReducer = (state = initialState, action: IAction) => {
           ...state.menu,
           books: { ...state.menu.books, nestedItems: state.menu.books.nestedItems?.concat(action.payload) },
         },
+        categories: action.payload,
       };
     default:
       return state;

@@ -149,6 +149,9 @@
   .comments {
     margin-bottom: 42px;
     margin-top: 62px;
+    button {
+      border: none;
+    }
     .title {
       display: flex;
       align-items: center;

@@ -1,14 +1,13 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
-import {useSelector} from "react-redux";
-// import { menuConfig } from '../../constants';
 import { useAppDispatch } from '../../hooks';
+import { getCategoriesAction, getMenuSelector } from '../../store/slice/category-slice';
 import { CollapseItem } from '../collapse-item';
 
 import styles from './menu.module.scss';
-import {getCategoriesAction, getCategoriesSelector} from "../../store/slice/category-slice";
 
 interface IMenuProps {
   isShowMenu: boolean;
@@ -18,7 +17,7 @@ interface IMenuProps {
 
 export const Menu: FC<IMenuProps> = ({ isShowMenu, onCloseMenu, isWithBreadcrumbs }) => {
   const dispatch = useAppDispatch();
-  const categories = useSelector(getCategoriesSelector);
+  const menu = useSelector(getMenuSelector);
   const [showCollapse, setShowCollapse] = useState(true);
   const handleCollapseClick = () => setShowCollapse((prevState) => !prevState);
 
@@ -26,12 +25,12 @@ export const Menu: FC<IMenuProps> = ({ isShowMenu, onCloseMenu, isWithBreadcrumb
   const getLinkClasses = (isActive: boolean) => classNames(styles.mainItem, { [styles.active]: isActive });
 
   useEffect(() => {
-      const length = categories?.books?.nestedItems?.length;
+    const length = menu?.books?.nestedItems?.length;
 
-      if (length && length < 2) {
-          dispatch(getCategoriesAction());
-      }
-  }, [dispatch, categories]);
+    if (length && length < 2) {
+      dispatch(getCategoriesAction());
+    }
+  }, [dispatch, menu]);
 
   return (
     <aside
@@ -42,11 +41,11 @@ export const Menu: FC<IMenuProps> = ({ isShowMenu, onCloseMenu, isWithBreadcrumb
       })}
     >
       <div>
-        {Object.keys(categories).map((item) =>
-            categories[item].nestedItems ? (
+        {Object.keys(menu).map((item) =>
+            menu[item].nestedItems ? (
             <CollapseItem
-              key={categories[item].name}
-              data={categories[item]}
+              key={menu[item].name}
+              data={menu[item]}
               onCloseMenu={onCloseMenu}
               showCollapse={showCollapse}
               setShowCollapse={handleCollapseClick}
@@ -54,13 +53,13 @@ export const Menu: FC<IMenuProps> = ({ isShowMenu, onCloseMenu, isWithBreadcrumb
             />
           ) : (
             <NavLink
-              data-test-id={isShowMenu ? categories[item]?.mobileDataTestId : categories[item]?.dataTestId}
+              data-test-id={isShowMenu ? menu[item]?.mobileDataTestId : menu[item]?.dataTestId}
               className={({ isActive }) => getLinkClasses(isActive)}
-              key={categories[item].name}
-              to={categories[item].path}
+              key={menu[item].name}
+              to={menu[item].path}
               onClick={handleClickMenuItem}
             >
-              {categories[item].name}
+              {menu[item].name}
             </NavLink>
           )
         )}

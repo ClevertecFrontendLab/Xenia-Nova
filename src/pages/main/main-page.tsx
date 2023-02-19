@@ -19,8 +19,10 @@ export const MainPage = () => {
   const handleChangeSort = (event: SyntheticEvent<HTMLButtonElement>) => setSort(event.currentTarget.value);
 
   useEffect(() => {
-    dispatch(getAllBooksAction());
-  }, [dispatch]);
+    if (!books?.length) {
+      dispatch(getAllBooksAction());
+    }
+  }, [dispatch, books]);
 
   return (
     <section className={styles.mainPage}>

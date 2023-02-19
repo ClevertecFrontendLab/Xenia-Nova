@@ -5,7 +5,6 @@ import classNames from 'classnames';
 
 import { DownIcon, UpIcon } from '../../assets';
 import { Button, Comment, ImageSwiper, Rating } from '../../components';
-import { mockComments } from '../../constants';
 import { useAppDispatch } from '../../hooks';
 import { clearCurrentBookAction, getCurrentBookAction, getCurrentBookSelector } from '../../store/slice';
 import { ICurrentBook } from '../../types';
@@ -16,8 +15,8 @@ export const BookPage = () => {
   const params = useParams();
   const dispatch = useAppDispatch();
   const currentBook = useSelector(getCurrentBookSelector);
-    console.log(currentBook);
-    const [showComments, setShowComments] = useState(true);
+
+  const [showComments, setShowComments] = useState(true);
 
   const {
     title = '',
@@ -43,9 +42,10 @@ export const BookPage = () => {
   const formattedWeight = weight ? `${weight} г` : '';
 
   const handleShowClick = () => {
-    if (mockComments.length) {
+    if (comments?.length) {
       return setShowComments((prevState) => !prevState);
     }
+
     return false;
   };
 
@@ -131,20 +131,20 @@ export const BookPage = () => {
           </article>
           <article className={styles.comments}>
             <button
-              className={classNames(styles.title, { [styles.collapseButton]: mockComments.length })}
+              className={classNames(styles.title, { [styles.collapseButton]: comments?.length })}
               type='button'
               onClick={handleShowClick}
               data-test-id='button-hide-reviews'
             >
               <div>
                 <p>Отзывы</p>
-                <span>{mockComments.length}</span>
+                <span>{comments?.length}</span>
               </div>
               {showComments ? <UpIcon /> : <DownIcon />}
             </button>
             <div className={classNames(styles.content, { [styles.contentVisible]: showComments })}>
-              {mockComments.map(({ id, user, avatarUrl, rating: commentRating, date, text }) => (
-                <Comment key={id} user={user} avatarUrl={avatarUrl} date={date} text={text} rating={commentRating} />
+              {comments?.map(({ id, user, rating: commentRating, createdAt, text }) => (
+                <Comment key={id} user={user} date={createdAt} text={text} rating={commentRating} />
               ))}
             </div>
             <Button

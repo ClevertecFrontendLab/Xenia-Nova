@@ -1,7 +1,7 @@
 import { rootReducer } from '../store/root-reducer';
 
-import {IBook, ICurrentBook} from './book';
-import {IMenuMainItem} from "./menu";
+import { IBook, ICurrentBook } from './book';
+import { IMenuItem, IMenuMainItem } from './menu';
 
 export type RootState = ReturnType<typeof rootReducer>;
 
@@ -16,5 +16,6 @@ export interface IBookState {
 }
 
 export interface ICategoriesState {
-    menu: { [key: string]: IMenuMainItem }
+  menu: { [key: string]: IMenuMainItem };
+  categories: IMenuItem[];
 }

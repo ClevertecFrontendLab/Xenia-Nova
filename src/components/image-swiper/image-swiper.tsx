@@ -41,9 +41,9 @@ export const ImageSwiper: FC<IImageSwiperProps> = ({ imgUrls = [] }) => {
             className={styles.mainSlider}
             data-test-id='slide-big'
           >
-            {mockImgArr.map((img) => (
-              <SwiperSlide key={img} className={styles.mainSlide}>
-                <img src={img} alt='slider img' />
+            {imgUrls.map((image) => (
+              <SwiperSlide key={image} className={styles.mainSlide}>
+                <img src={`${baseUrl}${image}`} alt='slider img' />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -62,9 +62,9 @@ export const ImageSwiper: FC<IImageSwiperProps> = ({ imgUrls = [] }) => {
               },
             }}
           >
-            {mockImgArr.map((img) => (
-              <SwiperSlide data-test-id='slide-mini' key={img} className={styles.slide}>
-                <img src={img} alt='slider img' />
+            {imgUrls.map((image) => (
+              <SwiperSlide data-test-id='slide-mini' key={image} className={styles.slide}>
+                <img src={`${baseUrl}${image}`} alt='slider img' />
               </SwiperSlide>
             ))}
           </Swiper>

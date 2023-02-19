@@ -15,15 +15,7 @@ const initialState: ICategoriesState = {
       id: 1,
       name: 'Витрина книг',
       path: MAIN_PAGE,
-      nestedItems: [
-        {
-          name: 'Все книги',
-          path: MAIN_PAGE,
-          dataTestId: 'navigation-books',
-          mobileDataTestId: 'burger-books',
-          id: 'defaultId',
-        },
-      ],
+      nestedItems: [],
     },
     treaty: {
       id: 2,

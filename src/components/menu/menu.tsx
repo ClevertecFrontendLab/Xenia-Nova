@@ -27,7 +27,7 @@ export const Menu: FC<IMenuProps> = ({ isShowMenu, onCloseMenu, isWithBreadcrumb
   useEffect(() => {
     const length = menu?.books?.nestedItems?.length;
 
-    if (length && length < 2) {
+    if (!length) {
       dispatch(getCategoriesAction());
     }
   }, [dispatch, menu]);
@@ -42,7 +42,7 @@ export const Menu: FC<IMenuProps> = ({ isShowMenu, onCloseMenu, isWithBreadcrumb
     >
       <div>
         {Object.keys(menu).map((item) =>
-            menu[item].nestedItems ? (
+          menu[item].nestedItems?.length ? (
             <CollapseItem
               key={menu[item].name}
               data={menu[item]}

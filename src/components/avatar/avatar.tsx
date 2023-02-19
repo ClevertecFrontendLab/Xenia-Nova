@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 
-import noImage from '../../assets/img/no-img.png';
+import noImage from '../../assets/img/no-avatar.png';
 
 import styles from './avatar.module.scss';
 

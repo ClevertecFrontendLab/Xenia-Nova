@@ -26,27 +26,36 @@ export const MainPage = () => {
 
   return (
     <section className={styles.mainPage}>
-      <ControlPanel viewType={viewToggle} sort={sort} onChangeView={handleChangeView} onChangeSort={handleChangeSort} />
-      <div className={styles[viewToggle]}>
-        {books?.map(
-          ({ id, authors, booking, title, image, rating, issueYear, categories, histories, delivery }: IBook) => (
-            <Card
-              key={id}
-              id={id}
-              image={image}
-              rating={rating}
-              title={title}
-              authors={authors}
-              issueYear={issueYear}
-              booking={booking}
-              viewType={viewToggle}
-              categories={categories}
-              histories={histories}
-              delivery={delivery}
-            />
-          )
-        )}
-      </div>
+      {!!books?.length && (
+        <React.Fragment>
+          <ControlPanel
+            viewType={viewToggle}
+            sort={sort}
+            onChangeView={handleChangeView}
+            onChangeSort={handleChangeSort}
+          />
+          <div className={styles[viewToggle]}>
+            {books?.map(
+              ({ id, authors, booking, title, image, rating, issueYear, categories, histories, delivery }: IBook) => (
+                <Card
+                  key={id}
+                  id={id}
+                  image={image}
+                  rating={rating}
+                  title={title}
+                  authors={authors}
+                  issueYear={issueYear}
+                  booking={booking}
+                  viewType={viewToggle}
+                  categories={categories}
+                  histories={histories}
+                  delivery={delivery}
+                />
+              )
+            )}
+          </div>
+        </React.Fragment>
+      )}
     </section>
   );
 };
